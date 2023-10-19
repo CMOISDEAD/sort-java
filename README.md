@@ -1,4 +1,4 @@
 - [x] Merge Sort
-- [ ] Bucket Sort
+- [x] Bucket Sort
 - [x] Quick Sort
-- [ ] Heap Sort
+- [x] Heap Sort
