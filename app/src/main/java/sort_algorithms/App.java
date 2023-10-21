@@ -8,12 +8,19 @@ public class App {
     public static void main(String[] args) {
         Utils utils = new Utils();
 
+        /*
+         * Example of usage of sort algorithms
+         * - Quick sort
+         * - Merge sort
+         * - Tim sort
+         * - Radix sort
+         * ...
+         */
         Quick sort = new Quick();
-        // Merge sort = new Merge();
-        // Heap sort = new Heap();
-        // Bucket sort = new Bucket();
 
-        int[] arr = utils.random_array(10000000);
+        int[] arr = utils.swap_array(10);
+        utils.print_array(arr);
         sort.execute(arr);
+        utils.print_array(arr);
     }
 }

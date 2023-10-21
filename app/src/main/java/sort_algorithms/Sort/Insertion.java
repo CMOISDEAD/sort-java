@@ -1,0 +1,26 @@
+package sort_algorithms.Sort;
+
+import sort_algorithms.Utils.Utils;
+
+public class Insertion {
+  public int[] execute(int[] arr) {
+    long start = System.currentTimeMillis();
+    insertionSort(arr);
+    long end = System.currentTimeMillis();
+    new Utils().print_execution_time(start, end);
+    return arr;
+  }
+
+  public void insertionSort(int[] arr) {
+    int n = arr.length;
+    for (int i = 1; i < n; i++) {
+      int key = arr[i];
+      int j = i - 1;
+      while (j >= 0 && arr[j] > key) {
+        arr[j + 1] = arr[j];
+        j--;
+      }
+      arr[j + 1] = key;
+    }
+  }
+}
