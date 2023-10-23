@@ -1,5 +1,9 @@
 package sort_algorithms.Utils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Utils {
   /**
    * generate an array with length len
@@ -67,5 +71,44 @@ public class Utils {
    */
   public void print_execution_time(long start, long end) {
     System.out.println("Time: " + (end - start) + "ms");
+  }
+
+  /**
+   * read file and return an array
+   *
+   * @param path
+   * @return array
+   */
+  public int[] read_file(String path) {
+    int[] arr = null;
+
+    try {
+      File file = new File(path);
+      Scanner scanner = new Scanner(file);
+      scanner.useDelimiter(",\\s*");
+
+      int cantidadElementos = 0;
+      while (scanner.hasNextInt()) {
+        cantidadElementos++;
+        scanner.nextInt();
+      }
+
+      scanner.close(); // NOTE: maybe not necessary
+      scanner = new Scanner(file);
+      scanner.useDelimiter(",\\s*");
+
+      arr = new int[cantidadElementos];
+
+      for (int i = 0; i < cantidadElementos; i++) {
+        arr[i] = scanner.nextInt();
+      }
+
+      scanner.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("File not found: " + path);
+      e.printStackTrace();
+    }
+
+    return arr;
   }
 }
